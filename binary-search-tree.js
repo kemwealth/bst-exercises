@@ -269,6 +269,25 @@ class BinarySearchTree {
     return parent.val;
   }
   
+  dfsInOrderIteratively() {
+    const visited = [];
+    const stack = [];
+    let current = this.root;
+  
+    while (stack.length > 0 || current !== null) {
+      while (current !== null) {
+        stack.push(current);
+        current = current.left;
+      }
+      current = stack.pop();
+      visited.push(current.val);
+      current = current.right;
+    }
+  
+    return visited;
+  }
+  
+  
 }
 
 module.exports = BinarySearchTree;
